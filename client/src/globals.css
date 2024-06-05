@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: ivyMode;
+    src: url(/fonts/IvyMode-Regular.ttf);
+}
+
+@font-face {
+    font-family: roobert;
+    src: url(/fonts/RoobertLight.ttf);
+}
+
+:root {
+    --nightmare-black:#000;
+    --white:#fff;
+    --ivy-mode-regular:ivyMode;
+    --robert-regular:roobert;
+    background: var(--nightmare-black,#000);
+    color: var(--white,#fff);
+}
+
+
+.container {
+    @apply max-w-[1200px] mx-auto w-[90%]
+}
+
+.hero_title {
+    @apply text-[9em] leading-[150px] font-ivy-mode-regular
+}
