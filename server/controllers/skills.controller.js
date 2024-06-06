@@ -53,8 +53,6 @@ class SkillsController {
                 const newValues = {}
                 if (name) 
                     newValues.name = name
-                if (img)
-                    newValues.img = img
                     
                 const doc = await Skill.findOneAndUpdate(
                     {_id:id},
@@ -88,6 +86,52 @@ class SkillsController {
             }else {
                 throw new AppError('error on deleting skill')
             }
+        }
+    )
+
+    static uploadSkillImage = controllerHandler(
+        async (req,res,next) => {
+            const id = req.params.id
+            const file = req.file
+            const skill = await Skill.findById(id)
+            if (skill) {
+                if (file) {
+                    skill.imgBuffer = file.buffer
+                    skill.mimeType = file.mimetype
+                    try {
+                        await skill.save()
+                        res.status(200).json({
+                            data:skill,
+                            status_code:1,
+                            message:'skill image updated successfully'
+                        })
+                    }catch (err) {
+                        throw new AppError('error on updating skill image')
+                    }
+                }
+            }else {
+                throw new AppError('no skill with this id',404,StatusCodes.notFound)
+            }
+
+        }
+    )
+
+    static getSkillImage = controllerHandler(
+        async (req,res,next) => {
+            const id = req.params.id
+            const skill = await Skill.findById(id)
+
+            if (skill) {
+                if (skill.imgBuffer) {
+                    res.set('Content-Type',skill.mimeType)
+                    res.send(skill.imgBuffer)
+                }else {
+                    throw new AppError('cannot get skill image',404,StatusCodes.notFound)
+                }
+            }else {
+                throw new AppError('no skill with this id',404,StatusCodes.notFound)
+            }
+
         }
     )
 }

@@ -6,9 +6,12 @@ const skillSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    img:{
-        type:String
-    }
+    imgBuffer:{
+        type:Buffer||null
+    },
+    mimeType:{
+        type :String || null
+    },
 })
 
 const Skill = mongoose.model("Skill", skillSchema);
@@ -17,7 +20,6 @@ const Skill = mongoose.model("Skill", skillSchema);
 const validateCreateSkill = (obj) => {
     const schema = joi.object({
         name: joi.string().required().max(20),
-        img: joi.string().required()
     })
     return schema.validate(obj)
 }
@@ -26,7 +28,6 @@ const validateCreateSkill = (obj) => {
 const validateUpdateSkill = (obj) => {
     const schema = joi.object({
         name: joi.string().max(20),
-        img: joi.string()
     })
     return schema.validate(obj)
 }

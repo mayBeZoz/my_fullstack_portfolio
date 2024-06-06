@@ -16,8 +16,11 @@ const projectSchema = new mongoose.Schema({
     client:{
         type:String
     },
-    img:{
-        type:String
+    imgBuffer:{
+        type:Buffer||null
+    },
+    mimeType:{
+        type :String || null
     },
     subDescription: {
         type:String,
@@ -45,7 +48,6 @@ const validateCreateProject = (obj) => {
         subDescription:joi.string().required().max(50),
         date: joi.string().required(),
         client: joi.string().required().max(20),
-        img: joi.string(),
         order:joi.number(),
         technologies:joi.array()
     })
@@ -59,7 +61,6 @@ const validateUpdateProject = (obj) => {
         subDescription:joi.string().max(50),
         date: joi.string(),
         client: joi.string().max(20),
-        img: joi.string(),
         order:joi.number(),
         technologies:joi.array()
     })

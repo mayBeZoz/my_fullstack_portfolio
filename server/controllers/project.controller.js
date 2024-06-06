@@ -3,6 +3,11 @@ const {Project,validateCreateProject,validateUpdateProject} = require('../models
 const AppError = require('../utils/appError');
 const StatusCodes = require('../utils/statusCodes');
 
+
+
+
+  
+
 class ProjectController {
     static getProjects = controllerHandler(
         async (req,res,next) => {
@@ -75,12 +80,11 @@ class ProjectController {
             const body = req.body
             const {error} = validateUpdateProject(body)
             if (!error) {
-                const {img,name,description,technologies,order,subDescription,client,date} = req.body
+                const {name,description,technologies,order,subDescription,client,date} = req.body
         
                 const id = req.params.id
                 const newValues = {}
-                if (img)
-                    newValues.img = img
+
                 if (name)
                     newValues.name = name
                 if (description)
@@ -130,6 +134,53 @@ class ProjectController {
             }else {
                 throw new AppError('error on deleting project')
             }
+        }
+    )
+
+
+    static uploadProjectImage = controllerHandler(
+        async (req,res,next) => {
+            const id = req.params.id
+            const file = req.file
+            const project = await Project.findById(id)
+            if (project) {
+                if (file) {
+                    project.imgBuffer = file.buffer
+                    project.mimeType = file.mimetype
+                    try {
+                        await project.save()
+                        res.status(200).json({
+                            data:project,
+                            status_code:1,
+                            message:'project image updated successfully'
+                        })
+                    }catch (err) {
+                        throw new AppError('error on updating project image')
+                    }
+                }
+            }else {
+                throw new AppError('no project with this id',404,StatusCodes.notFound)
+            }
+
+        }
+    )
+
+    static getProjectImage = controllerHandler(
+        async (req,res,next) => {
+            const id = req.params.id
+            const project = await Project.findById(id)
+
+            if (project) {
+                if (project.imgBuffer) {
+                    res.set('Content-Type',project.mimeType)
+                    res.send(project.imgBuffer)
+                }else {
+                    throw new AppError('cannot get project image',404,StatusCodes.notFound)
+                }
+            }else {
+                throw new AppError('no project with this id',404,StatusCodes.notFound)
+            }
+
         }
     )
 }
