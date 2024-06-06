@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path:'./config.env'});
 const cors = require('cors')
 const {databaseConnection} = require('./db/db')
 const StatusCodes = require('./utils/statusCodes')
