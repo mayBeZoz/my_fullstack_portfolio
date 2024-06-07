@@ -5,11 +5,26 @@ declare type Children = {
 }
 
 declare type PageTransitionsData =  {
-    togglePageInTransition:boolean|null,
-    togglePageOutTransition:boolean|null,
-    setTogglePageInTransition:(newState:boolean)=>void,
-    setTogglePageOutTransition:(newState:boolean)=>void
+    navigateTo:string,
+    setNavigateTo:(newHref:string) => void
 } | undefined
 
+declare type Skill = {
+
+}
+
+declare type Project = {
+    name:String,
+    description:String,
+    imgBuffer:String,
+    github:String,
+    live:String,
+    tech:String,
+}
+
+declare type RemoteDataProvider = {
+    skills:[]|any[],
+
+}
 
 

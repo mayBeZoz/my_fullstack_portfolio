@@ -10,7 +10,8 @@ const config: Config = {
         extend: {
             colors:{
                 "nightmare-black":'#000',
-                'white':"#fff"
+                'white':"#fff",
+                
             },
             fontFamily: {
                 'ivy-mode-regular':"var(--ivy-mode-regular)",
@@ -19,6 +20,9 @@ const config: Config = {
             container:{
                 center:true,
                 
+            },
+            screens:{
+                xs:"410px"
             }
         },
     },

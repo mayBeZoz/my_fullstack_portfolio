@@ -27,5 +27,9 @@
 }
 
 .hero_title {
-    @apply text-[9em] leading-[150px] font-ivy-mode-regular
+    @apply text-5xl xs:text-6xl sm:text-7xl lg:text-9xl lg:leading-[150px] md:text-8xl font-ivy-mode-regular
+}
+
+.white_button {
+    @apply py-3 w-fit cursor-pointer px-16 font-robert border border-white tracking-wide font-semibold text-nightmare-black bg-white text-lg capitalize hover:bg-transparent hover:text-white duration-150
 }

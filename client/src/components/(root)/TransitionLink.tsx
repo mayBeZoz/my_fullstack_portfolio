@@ -1,8 +1,5 @@
 'use client'
-
 import { usePageTransitionProvider } from "@/contexts/PageTransitionsProvider"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 
 type TransitionLinkProps = {
     href:string,
@@ -10,29 +7,16 @@ type TransitionLinkProps = {
 function TransitionLink({href,children}:TransitionLinkProps) {
     
     const pagesTransitionProviderData:PageTransitionsData = usePageTransitionProvider()
-    const togglePageOut = pagesTransitionProviderData?.togglePageOutTransition
-    
-    const router = useRouter()
 
 
     const handleNavigation = () => {
-        pagesTransitionProviderData?.setTogglePageOutTransition(true)        
+        pagesTransitionProviderData?.setNavigateTo(href)
     }
     
-    // useEffect(()=>{
-    //     if (togglePageOut) {
-    //         console.log(href)
-
-    //         setTimeout(()=>{
-    //             router.push(href)
-    //         },1100)
-    //     }
-    // },[togglePageOut])
-    
     return (
-        <span onClick={handleNavigation}>
+        <div className="cursor-pointer" onClick={handleNavigation}>
             {children}
-        </span>
+        </div>
     )
 }
 

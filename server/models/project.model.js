@@ -35,6 +35,14 @@ const projectSchema = new mongoose.Schema({
         type:[mongoose.Schema.Types.ObjectId],
         ref:'Skill',
         default:[]
+    },
+    deployURL:{
+        type:String,
+        default:null
+    },
+    githubRepoURL:{
+        type:String,
+        default:null 
     }
 })
 
@@ -49,7 +57,9 @@ const validateCreateProject = (obj) => {
         date: joi.string().required(),
         client: joi.string().required().max(20),
         order:joi.number(),
-        technologies:joi.array()
+        technologies:joi.array(),
+        deployURL:joi.string().required(),
+        githubRepoURL:joi.string().required()
     })
     return schema.validate(obj)
 }
@@ -62,7 +72,9 @@ const validateUpdateProject = (obj) => {
         date: joi.string(),
         client: joi.string().max(20),
         order:joi.number(),
-        technologies:joi.array()
+        technologies:joi.array(),
+        deployURL:joi.string(),
+        githubRepoURL:joi.string()
     })
     return schema.validate(obj)
 }
