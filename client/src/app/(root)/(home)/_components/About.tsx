@@ -1,11 +1,12 @@
+import Image from '@/components/root/Image'
 import React from 'react'
 
 function About() {
     return (
         <section className='w-full mt-32'>
             <div className='flex container gap-10'>
-                <div className='h-[450px] bg-slate-50 w-[400px]'>
-                    <img className='grayscale' src="https://web.telegram.org/f5d74787-3b48-445a-b631-2429f114a446" alt="" />
+                <div className='h-[450px] w-[400px]'>
+                    <Image className='grayscale w-full h-full bg-white/25' src="https://web.telegram.org/f5d74787-3b48-445a-b631-2429f114a446" alt="" />
                 </div>
 
                 <div className='flex flex-1 mt-auto h-fit gap-10 flex-col'>

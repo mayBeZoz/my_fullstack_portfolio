@@ -20,7 +20,9 @@
     background: var(--nightmare-black,#000);
     color: var(--white,#fff);
 }
-
+::-webkit-scrollbar {
+    width: 0;
+}
 
 .container {
     @apply max-w-[1200px] mx-auto w-[90%]
@@ -31,5 +33,24 @@
 }
 
 .white_button {
-    @apply py-3 w-fit cursor-pointer px-16 font-robert border border-white tracking-wide font-semibold text-nightmare-black bg-white text-lg capitalize hover:bg-transparent hover:text-white duration-150
+    @apply py-3 w-fit cursor-pointer px-20 font-robert border border-white tracking-wide font-semibold text-nightmare-black bg-white text-lg capitalize hover:bg-transparent hover:text-white duration-150
+}
+
+
+.work_item {
+    @apply w-full flex items-center pb-3 justify-between h-[70px] relative
+}
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(-80deg, #1d1d1d 0%, #3d3d3d 20%, #1d1d1d 40%, #1d1d1d 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 4s infinite linear;
 }

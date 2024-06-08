@@ -1,4 +1,4 @@
-import TransitionLink from '@/components/(root)/TransitionLink'
+import TransitionLink from '@/components/root/TransitionLink'
 import React from 'react'
 
 const links = [

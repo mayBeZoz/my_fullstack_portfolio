@@ -3,11 +3,6 @@ const {Project,validateCreateProject,validateUpdateProject} = require('../models
 const AppError = require('../utils/appError');
 const StatusCodes = require('../utils/statusCodes');
 
-
-
-
-  
-
 class ProjectController {
     static getProjects = controllerHandler(
         async (req,res,next) => {
@@ -80,7 +75,7 @@ class ProjectController {
             const body = req.body
             const {error} = validateUpdateProject(body)
             if (!error) {
-                const {name,description,technologies,order,subDescription,client,date} = req.body
+                const {name,description,isSelected,technologies,order,subDescription,client,date} = req.body
         
                 const id = req.params.id
                 const newValues = {}
@@ -99,6 +94,8 @@ class ProjectController {
                     newValues.order = +order
                 if (technologies)
                     newValues.technologies = technologies
+                if (isSelected)
+                    newValues.isSelected = isSelected
 
                 const doc = await Project.findOneAndUpdate(
                     {_id:id},

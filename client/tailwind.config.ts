@@ -23,7 +23,8 @@ const config: Config = {
             },
             screens:{
                 xs:"410px"
-            }
+            },
+        
         },
     },
     plugins: [],

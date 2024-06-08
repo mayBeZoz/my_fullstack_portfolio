@@ -6,6 +6,7 @@ const AppError = require('./utils/appError');
 
 
 
+
 const express = require('express');
 const app = express()
  
@@ -32,6 +33,7 @@ app.use((err,req,res,next)=>{
         message:err?.message
     })
 })
+
 
 const PORT = process.env.PORT || 8000
 
