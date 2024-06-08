@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const joi = require("joi");
-const allInfoSchema = new mongoose.Schema({
+const infoSchema = new mongoose.Schema({
     socials:{
         type:[{name:String,href:String}],
     },
@@ -45,7 +45,7 @@ const allInfoSchema = new mongoose.Schema({
 
 
 
-const AllInfo = mongoose.model("AllInfo", allInfoSchema);
+const Info = mongoose.model("Info", infoSchema);
 
 
 const validateCreateInfo = (obj) => {
@@ -98,7 +98,7 @@ const validateUpdateInfo = (obj) => {
 }
 
 module.exports = {
-    AllInfo,
+    Info,
     validateCreateInfo,
     validateUpdateInfo
 } 

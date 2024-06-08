@@ -1,15 +1,15 @@
 const controllerHandler = require('../middlewares/controllerHandler')
-const {AllInfo,validateCreateInfo,validateUpdateInfo} = require('../models/allInfos.model')
+const {Info,validateCreateInfo,validateUpdateInfo} = require('../models/infos.model')
 const AppError = require('../utils/appError');
 const StatusCodes = require('../utils/statusCodes');
 
 
-class AllInfosController {
+class InfosController {
 
     static getInfoById = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await AllInfo.findById(id).populate('services.technologies').exec()
+            const info = await Info.findById(id).populate('services.technologies').exec()
             if (info) {
                 res.status(200).json({
                     data:info,
@@ -41,7 +41,7 @@ class AllInfosController {
                     newValues.contacts = contacts
                 if (isChecked)
                     newValues.isChecked = isChecked
-                const doc = await AllInfo.findOneAndUpdate(
+                const doc = await Info.findOneAndUpdate(
                     {_id:id},
                     {$set:newValues},
                     {new:true}
@@ -67,7 +67,7 @@ class AllInfosController {
             const {error} = validateCreateInfo(body)
 
             if (!error) {
-                const info = await AllInfo.create(body)
+                const info = await Info.create(body)
                 await info.save()
                 if (info) {
                     res.status(201).json({
@@ -84,9 +84,9 @@ class AllInfosController {
         } 
     )
 
-    static getAllInfos = controllerHandler(
+    static getInfos = controllerHandler(
         async (req,res,next) => {
-            const infos = await AllInfo.find({}).populate('services.technologies').exec()
+            const infos = await Info.find({}).populate('services.technologies').exec()
             if (infos) {
                 res.status(200).json({
                     data:infos,
@@ -102,7 +102,7 @@ class AllInfosController {
     static uploadInfoResume = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await AllInfo.findById(id)
+            const info = await Info.findById(id)
             const file = req.file
     
             if (info) {
@@ -129,7 +129,7 @@ class AllInfosController {
     static deleteInfoById = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await AllInfo.findByIdAndDelete(id)
+            const info = await Info.findByIdAndDelete(id)
             if (info) {
                 res.status(200).json({
                     data:info,
@@ -145,7 +145,7 @@ class AllInfosController {
     static uploadInfoPersonalImage = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await AllInfo.findById(id)
+            const info = await Info.findById(id)
             const file = req.file
     
             if (info) {
@@ -172,7 +172,7 @@ class AllInfosController {
     static getInfoResume = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await AllInfo.findById(id)
+            const info = await Info.findById(id)
 
             if (info) {
                 const resume = info.resume
@@ -190,7 +190,7 @@ class AllInfosController {
     static getInfoPersonalImage = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await AllInfo.findById(id)
+            const info = await Info.findById(id)
 
             if (info) {
                 const img = info.personalImage
@@ -206,4 +206,4 @@ class AllInfosController {
 }
 
 
-module.exports = AllInfosController;
+module.exports = InfosController;

@@ -21,11 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 const projectRouter = require('./routes/project.route');
 const skillsRouter = require('./routes/skill.route');
 const authRouter = require('./routes/auth.route');
+const infoRouter =  require('./routes/infos.route')
 
 app.use('/api/projects',projectRouter)
 app.use('/api/skills',skillsRouter)
 app.use('/api/auth',authRouter)
-
+app.use('/api/infos',infoRouter)
 app.use((err,req,res,next)=>{
     res.status(err.response_code|| 500).json({
         status_code:err.status_code || StatusCodes.internalError,
