@@ -1,0 +1,1 @@
+export const infoId = '6664c119e8d1d9cd503a6eae'

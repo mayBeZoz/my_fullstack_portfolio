@@ -168,7 +168,7 @@ class ProjectController {
             const project = await Project.findById(id)
 
             if (project) {
-                if (project.imgBuffer) {
+                if (project) {
                     res.set('Content-Type',project.mimeType)
                     res.send(project.imgBuffer)
                 }else {

@@ -40,7 +40,7 @@ const WorkItem = ({item}:{item:Project}) => {
     )
 }
 function Work() {
-    const {projects,isLoading,isSuccess} = useGetProjects()
+    const {projects,isLoading,isSuccess} = useGetProjects(10,1)
     
     return (
         <section className='my-80'>

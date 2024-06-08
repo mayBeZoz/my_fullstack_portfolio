@@ -174,9 +174,11 @@ class InfosController {
 
             if (info) {
                 const resume = info.resume
-                if (resume.resumeBuffer) {
+                if (resume) {
                     res.set('Content-Type',resume.mimeType)
                     res.send(resume.resumeBuffer)
+                }else {
+                    throw new AppError('error in getting info resume')
                 }
             }else {
                 throw new AppError('no info with this id',404,StatusCodes.notFound)
@@ -192,9 +194,12 @@ class InfosController {
 
             if (info) {
                 const img = info.personalImage
-                if (img.resumeBuffer) {
+                if (img) {
                     res.set('Content-Type',img.mimeType)
-                    res.send(img.imgBuffer)
+                    res.send(img.imageBuffer)
+                }else {
+                    throw new AppError('error in getting info personal image')
+
                 }
             }else {
                 throw new AppError('no info with this id',404,StatusCodes.notFound)

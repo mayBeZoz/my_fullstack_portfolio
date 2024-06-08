@@ -1,22 +1,11 @@
 import { projectsRoute } from '@/services/api'
 import { getService } from '@/services/getService'
 import { useQuery } from 'react-query'
-import { useGetData } from './useGetData'
 
-function useGetProjects() {
-    const {
-        response,
-        isLoading,
-        isSuccess,
-        refetch,
-        currLimit,
-        currPage,
-        setCurrLimit,
-        setCurrPage
-    } = useGetData({
-        queryKey:['projects'],
-        queryFn:async _ => getService(projectsRoute),
-
+function useGetProjects(limit:number,page:number) {
+    const {data:response,isLoading,isSuccess,refetch} = useQuery({
+        queryKey:['projects',{page,limit}],
+        queryFn:async _ => getService(`${projectsRoute}?page=${page}&limit=${limit}`),
     })
     
     const data:Project[]|[] = response?.data?.projects
@@ -25,7 +14,7 @@ function useGetProjects() {
         projects,
         isLoading,
         isSuccess,
-        refetch
+        refetch,
     }
 }
 

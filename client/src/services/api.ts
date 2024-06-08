@@ -2,6 +2,7 @@ export const BASE_URL = 'https://zeyadtamer-server.onrender.com/api'
 
 export const projectsRoute = '/projects'
 export const skillsRoute = '/skills'
+export const infosRoute = '/infos'
 
 export const clientFetchErrObj = ({
     error:'error happened in getService',

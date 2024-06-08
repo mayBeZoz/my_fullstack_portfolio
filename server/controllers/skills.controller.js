@@ -122,7 +122,7 @@ class SkillsController {
             const skill = await Skill.findById(id)
 
             if (skill) {
-                if (skill.imgBuffer) {
+                if (skill) {
                     res.set('Content-Type',skill.mimeType)
                     res.send(skill.imgBuffer)
                 }else {

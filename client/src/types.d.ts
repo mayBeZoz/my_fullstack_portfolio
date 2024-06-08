@@ -32,28 +32,38 @@ declare type Project = {
     _id:            string  
 }
 
-declare type RemoteDataProvider = {
-    skills:     Skill[]|null,
-    projects:   Project[]|null
+declare type Social = {
+    name:string,
+    href:string
 }
-
-
-
-declare type UseGetDataOptions = {
-    page?:       number,
-    limit?:      number,
-    queryKey:   any[],
-    queryFn:    (param?:any) => Promise<any>
-
+declare type Service = {
+    name: string,
+    description: string,
+    imgBuffer: null|Buffer,
+    mimeType: null|string,
+    technologies: Skill[]
 }
-
-declare type UseGetDataResult = {
-    setCurrPage:    (newPage:number) => void,
-    setCurrLimit:   (newLimit:number) => void,
-    response:       {status_code:number,data:any,message:string},
-    currPage:       number,
-    currLimit:      number,
-    isLoading:      boolean,
-    isSuccess:      boolean,
-    refetch:        () => void
+declare type Info = {
+    
+    _id:                    string
+    services:               Service[],
+    socials:                Social[],
+    contacts: {
+        email:              string,
+        phone:              string,
+        _id:                string
+    },
+    isSelected:             boolean,
+    about:                  string,
+    resume: {
+        resumeBuffer:       null|Buffer,
+        mimeType:           null |string,
+        _id:                string
+    },
+    personalImage: {
+        imageBuffer:        null |Buffer,
+        mimeType:           null |string,
+        _id:                string
+    }
+    
 }
