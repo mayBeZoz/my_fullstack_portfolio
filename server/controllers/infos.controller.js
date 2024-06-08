@@ -104,7 +104,6 @@ class InfosController {
             const id = req.params.id
             const info = await Info.findById(id)
             const file = req.file
-    
             if (info) {
                 if (file) {
                     info.resume.resumeBuffer = file.buffer
@@ -147,11 +146,10 @@ class InfosController {
             const id = req.params.id
             const info = await Info.findById(id)
             const file = req.file
-    
-            if (info) {
-                if (file) {
-                    info.personalImage.imgBuffer = file.buffer
-                    info.personalImage.mimeType = file.mimetype
+            if (file) {
+                info.personalImage.imageBuffer = file.buffer
+                info.personalImage.mimeType = file.mimetype
+                if (info) {
                     try {
                         await info.save()
                         res.status(200).json({
@@ -160,7 +158,7 @@ class InfosController {
                             message:'info personal image added successfully'
                         })
                     }catch (err) {
-                        throw new AppError('error on adding info personal image')
+                        throw new AppError(`error on adding info personal image : ${err}`)
                     }
                 }
             }else {

@@ -19,7 +19,7 @@ const infoSchema = new mongoose.Schema({
     about:String||null,
     personalImage:{
         type: {
-            imgBuffer:Buffer||null,
+            imageBuffer:Buffer||null,
             mimeType:String||null
         }
     },
