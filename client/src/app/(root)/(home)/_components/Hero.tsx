@@ -5,9 +5,9 @@ function Hero() {
 
     const description = 'zeyad tamer an egyptian developer is passionate in programing and web devlopment'
     return (
-        <section className='h-screen capitalize pt-[200px]'>
+        <section className='h-screen capitalize pt-[100px]'>
             
-            <div className="container relative flex flex-col h-full">
+            <div className="container justify-center relative flex flex-col h-full">
                 <div className='lg:ml-10'>
                     <div className='w-fit flex flex-col'>
                         <p className='hero_title'>zeyad tamer</p>
@@ -20,8 +20,8 @@ function Hero() {
                 </div>
 
                 <div className='absolute font-robert font-thin w-full bottom-2 flex justify-between items-end'>
-                    <p className='text-sm'>{`all rights © reserved ${getCurrYear()}`}</p>
-                    <p className='text-lg'>based in egypt, cairo</p>
+                    <p className='xs:block hidden text-sm'>{`all rights © reserved ${getCurrYear()}`}</p>
+                    <p className='xs:block hidden text-sm'>based in egypt, cairo</p>
                 </div>
             </div>
 

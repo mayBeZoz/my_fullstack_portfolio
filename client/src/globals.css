@@ -29,13 +29,15 @@
 }
 
 .hero_title {
-    @apply text-5xl xs:text-6xl sm:text-7xl lg:text-9xl lg:leading-[150px] md:text-8xl font-ivy-mode-regular
+    @apply text-5xl xs:text-6xl sm:text-7xl lg:text-9xl lg:leading-[130px] md:text-8xl font-ivy-mode-regular
 }
 
 .white_button {
-    @apply py-3 w-fit cursor-pointer px-20 font-robert border border-white tracking-wide font-semibold text-nightmare-black bg-white text-lg capitalize hover:bg-transparent hover:text-white duration-150
+    @apply py-2 sm:py-3 w-fit cursor-pointer px-10 sm:px-20 font-robert border border-white tracking-wide font-semibold text-nightmare-black bg-white text-sm sm:text-lg capitalize hover:bg-transparent hover:text-white duration-150
 }
-
+.section_heading {
+    @apply text-6xl sm:text-8xl  font-ivy-mode-regular capitalize
+}
 
 .work_item {
     @apply w-full flex items-center pb-3 justify-between h-[70px] relative

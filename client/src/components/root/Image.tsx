@@ -30,7 +30,7 @@ function Image({src,className,alt,style}:ImageProps) {
             src={imgURL} 
             style={style} 
             alt={alt} 
-            className={className} 
+            className={`${className} object-cover`} 
         />
     )
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import Skeleton from '@/components/root/Skeleton'
 import useGetProjects from '@/hooks/useGetProjects'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
@@ -9,10 +10,10 @@ import { IoMdArrowForward } from 'react-icons/io'
 const WorkItemSkeleton = () => (
     <motion.div exit={{opacity:0}} className='work_item'>
         <div className='flex gap-16'>
-            <div key='skeleton1' className='h-[30px] bg-white/25 rounded-md w-[200px] shimmer'/>
+            <Skeleton height={30} width={200}/>
             <div className='flex flex-col mt-auto gap-2'>
-                <div key='skeleton2' className='h-[10px] bg-white/25 rounded-md w-[100px] shimmer'/>
-                <div key='skeleton3' className='h-[10px] bg-white/25 rounded-md w-[160px] shimmer'/>
+                <Skeleton width={100}/>
+                <Skeleton width={180}/>
             </div>
         </div>  
         <span className='w-full h-[2px] absolute bottom-0 left-0 bg-white/25 shimmer'/>      
@@ -29,7 +30,7 @@ const WorkItem = ({item}:{item:Project}) => {
         >
             <Link href={`/projects/${item._id}`} className='work_item duration-300 hover:opacity-80'>
                 <div className="flex items-center capitalize gap-16">
-                    <p className='font-ivy-mode-regular text-2xl md:text-3xl lg:text-5xl'>{item.name}</p>
+                    <p className='font-ivy-mode-regular text-3xl lg:text-5xl'>{item.name}</p>
                     <p className='font-robert text-sm w-[120px] sm:block hidden'>{item.subDescription}</p>
                 </div>
                 <IoMdArrowForward className='-rotate-45 text-5xl md:text-7xl' />
@@ -45,7 +46,7 @@ function Work() {
     return (
         <section className='my-80'>
             <div className='container flex flex-col'>
-                <h2 className='text-8xl capitalize font-ivy-mode-regular mb-32'>my work</h2>
+                <h2 className='section_heading sm:mb-32 mb-10'>my work</h2>
 
                 <div className='w-full flex flex-col items-center md:w-[80%] ml-auto'>
                     <div className='w-full flex mb-20 flex-col'>

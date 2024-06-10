@@ -6,7 +6,9 @@ declare type Children = {
 
 declare type PageTransitionsData =  {
     navigateTo:     string,
-    setNavigateTo:  (newHref:string) => void
+    setNavigateTo:  (newHref:string) => void,
+    isNavigating:   boolean,
+    setIsNavigating: (newState:boolean) => void
 } | undefined
 
 declare type Skill = {
@@ -67,3 +69,4 @@ declare type Info = {
     }
     
 }
+

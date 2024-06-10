@@ -15,20 +15,21 @@ function Header() {
 
 
     return (
-        <header className='w-full fixed top-0 left-0 h-[100px]'>
+        <header className='w-full backdrop-blur-md z-[100] fixed top-0 left-0 h-[100px]'>
             <div className='relative w-full h-full'>
-                <div className='w-full h-full absolute top-0 left-0  bg-black/10 blur-lg'/>
                 <div className="container relative z-20 h-full flex items-center justify-between">
                     <div className='w-fit'>
-                        <h1 className="text-3xl font-robert font-semibold">Zeyad.</h1>
+                        <TransitionLink href={'/'}>
+                            <h1 className="text-2xl xs:text-3xl font-robert font-semibold">Zeyad.</h1>
+                        </TransitionLink>
                     </div>
 
 
-                    <nav className=' mr-20'>
+                    <nav>
                         <ul className='flex font-robert gap-10 justify-between'>
                             {
                                 links.map((link,key)=> (
-                                    <li className='text-lg w-fit uppercase' key={key}>
+                                    <li className='text-sm xs:text-lg w-fit uppercase' key={key}>
                                         <TransitionLink href={link.href}>
                                             {link.name}
                                         </TransitionLink>

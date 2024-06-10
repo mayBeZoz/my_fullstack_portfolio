@@ -1,16 +1,24 @@
 'use client'
-import { usePageTransitionProvider } from "@/contexts/PageTransitionsProvider"
+
+
+import { pageTransitionAnimation } from "@/animations/pageTransitionAnimation"
+import { usePathname, useRouter } from "next/navigation"
 
 type TransitionLinkProps = {
     href:string,
 } & Children
 function TransitionLink({href,children}:TransitionLinkProps) {
     
-    const pagesTransitionProviderData:PageTransitionsData = usePageTransitionProvider()
+    const router = useRouter()
+    const pathname = usePathname()
 
-
-    const handleNavigation = () => {
-        pagesTransitionProviderData?.setNavigateTo(href)
+    const handleNavigation = async () => {
+        if (href !== pathname) {
+            const tl:GSAPTimeline = pageTransitionAnimation()
+            await tl.play()
+            await router.push(href)
+            await tl.reverse()
+        }
     }
     
     return (
