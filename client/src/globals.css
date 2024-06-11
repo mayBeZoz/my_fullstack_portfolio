@@ -56,3 +56,14 @@
     background-size: 1000px 100%;
     animation: shimmer 4s infinite linear;
 }
+
+.input_label {
+    @apply text-2xl absolute top-0 left-5 -translate-y-1/2 bg-black font-ivy-mode-regular
+}
+
+.input {
+    @apply w-full h-[40xpx] border border-zinc-200 p-5 text-xl outline-none bg-transparent font-robert
+}
+.textarea {
+    @apply input resize-none !h-[150px] 
+}

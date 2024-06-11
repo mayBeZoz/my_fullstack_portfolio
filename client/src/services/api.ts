@@ -4,6 +4,9 @@ export const projectsRoute = '/projects'
 export const skillsRoute = '/skills'
 export const infosRoute = '/infos'
 
+// auth routes
+export const loginRoute = '/auth/login'
+
 export const clientFetchErrObj = ({
     error:'error happened in getService',
     status_code:-4,

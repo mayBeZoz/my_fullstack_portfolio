@@ -1,11 +1,11 @@
 'use client'
 import Image from '@/components/root/Image'
 import Skeleton from '@/components/root/Skeleton'
-import { isEven } from '@/hooks/isEven'
+import TransitionLink from '@/components/root/TransitionLink'
 import useGetProjects from '@/hooks/useGetProjects'
 import { BASE_URL, projectsRoute } from '@/services/api'
+import { isEven } from '@/utils/isEven'
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 import React from 'react'
 
 type ProjectProps = {
@@ -25,7 +25,7 @@ const Project = ({project,order}:ProjectProps) => {
             initial={{opacity:0}}
             style={{justifyContent:isEvenNum ? 'end' : 'start'}}
         >
-            <Link 
+            <TransitionLink 
                 href={`/projects/${_id}`} 
                 className='flex md:!w-[600px] gap-10 w-full flex-col'
             >
@@ -37,7 +37,7 @@ const Project = ({project,order}:ProjectProps) => {
                     <h5 className='font-ivy-mode-regular text-4xl sm:text-5xl'>{name}</h5>
                     <p className='font-robert text-lg'>{subDescription}</p>
                 </div>
-            </Link>
+            </TransitionLink>
             
         </motion.section>
     )
@@ -72,7 +72,7 @@ function ProjectsPage() {
             <div className="w-full flex gap-20 flex-col">
                 <AnimatePresence>
                     {
-                        true? (
+                        isLoading? (
                             <>
                                 <ProjectSkeleton order={1}/>
                                 <ProjectSkeleton order={2}/>

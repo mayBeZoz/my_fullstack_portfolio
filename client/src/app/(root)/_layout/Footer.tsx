@@ -1,5 +1,13 @@
 import React from 'react'
 
+const GetInTouchButton = () => {
+    return (
+        <div>
+
+            
+        </div>
+    )
+}
 function Footer() {
     return (
         <footer>

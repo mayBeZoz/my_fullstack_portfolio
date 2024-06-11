@@ -6,8 +6,9 @@ import { usePathname, useRouter } from "next/navigation"
 
 type TransitionLinkProps = {
     href:string,
+    className?:string
 } & Children
-function TransitionLink({href,children}:TransitionLinkProps) {
+function TransitionLink({href,children,className}:TransitionLinkProps) {
     
     const router = useRouter()
     const pathname = usePathname()
@@ -22,7 +23,7 @@ function TransitionLink({href,children}:TransitionLinkProps) {
     }
     
     return (
-        <div className="cursor-pointer" onClick={handleNavigation}>
+        <div className={`cursor-pointer ${className}`} onClick={handleNavigation}>
             {children}
         </div>
     )

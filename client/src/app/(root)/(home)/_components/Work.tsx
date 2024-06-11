@@ -1,9 +1,9 @@
 'use client'
 
 import Skeleton from '@/components/root/Skeleton'
+import TransitionLink from '@/components/root/TransitionLink'
 import useGetProjects from '@/hooks/useGetProjects'
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 import React from 'react'
 import { IoMdArrowForward } from 'react-icons/io'
 
@@ -28,7 +28,7 @@ const WorkItem = ({item}:{item:Project}) => {
             animate={{opacity:1}}
             className='w-full'
         >
-            <Link href={`/projects/${item._id}`} className='work_item duration-300 hover:opacity-80'>
+            <TransitionLink href={`/projects/${item._id}`} className='work_item duration-300 hover:opacity-80'>
                 <div className="flex items-center capitalize gap-16">
                     <p className='font-ivy-mode-regular text-3xl lg:text-5xl'>{item.name}</p>
                     <p className='font-robert text-sm w-[120px] sm:block hidden'>{item.subDescription}</p>
@@ -36,7 +36,7 @@ const WorkItem = ({item}:{item:Project}) => {
                 <IoMdArrowForward className='-rotate-45 text-5xl md:text-7xl' />
 
                 <span className='w-full h-[2px] absolute bottom-0 left-0 bg-white '/>      
-            </Link>
+            </TransitionLink>
         </motion.div>
     )
 }
@@ -70,9 +70,9 @@ function Work() {
                         </AnimatePresence>
                         
                     </div>
-                    <Link href='/projects' className="white_button">
+                    <TransitionLink href='/projects' className="white_button">
                         see more work
-                    </Link>
+                    </TransitionLink>
                 </div>
                 
             </div>

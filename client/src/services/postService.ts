@@ -9,10 +9,10 @@ export const postService =  async (url:string,body:any) => {
                 'Content-Type':'application/json'
             }
         })
-        const data =  await res.json()
-        if (res.ok) {
-            return data
-        }
+        
+        const data = await res.json()
+        return data
+        
     }catch (err) {
         return clientFetchErrObj
     }
