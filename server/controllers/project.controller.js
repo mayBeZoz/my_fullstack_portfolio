@@ -75,7 +75,7 @@ class ProjectController {
             const body = req.body
             const {error} = validateUpdateProject(body)
             if (!error) {
-                const {name,description,isSelected,technologies,order,subDescription,client,date} = req.body
+                const {name,githubRepoURL,deployURL,description,isSelected,technologies,order,subDescription,client,date} = req.body
         
                 const id = req.params.id
                 const newValues = {}
@@ -96,6 +96,10 @@ class ProjectController {
                     newValues.technologies = technologies
                 if (isSelected)
                     newValues.isSelected = isSelected
+                if (githubRepoURL)
+                    newValues.githubRepoURL = githubRepoURL
+                if (deployURL)
+                    newValues.deployURL = deployURL
 
                 const doc = await Project.findOneAndUpdate(
                     {_id:id},

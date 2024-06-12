@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.47",
+    "cookies-next": "^4.2.1",
     "framer-motion": "^11.2.10",
     "gsap": "^3.12.5",
     "next": "14.2.3",
@@ -17,6 +18,7 @@
     "react-dom": "^18",
     "react-icons": "^5.2.1",
     "react-query": "^3.39.3",
+    "react-toastify": "^10.0.5",
     "uuidv4": "^6.2.13",
     "winston": "^3.13.0"
   },

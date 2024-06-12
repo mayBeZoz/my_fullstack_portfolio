@@ -13,9 +13,7 @@ function Login() {
     const {mutate,isLoading} = useLogin(email,password)
 
     const handleSubmit = (e:any) => {
-        e.preventDefault()
-        console.log();
-        
+        e.preventDefault()        
         mutate()
     }
 

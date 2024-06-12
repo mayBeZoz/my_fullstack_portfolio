@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server"
-import { AUTH_ROUTES, PROTECTED_ROUTES } from "./lib/routes";
+import { AUTH_ROUTES, PROTECTED_ROUTES, isRoutePrivate } from "./lib/routes";
 
 export async function middleware (req:NextRequest) {
     const accessToken = cookies().get('access-token')
@@ -8,7 +8,7 @@ export async function middleware (req:NextRequest) {
     const pathname = req.nextUrl.pathname
     
     if (!accessToken) {
-        if (PROTECTED_ROUTES.includes(pathname)) {
+        if (isRoutePrivate(pathname)) {
             return NextResponse.redirect(new URL('/', req.url))
         }
     }else {

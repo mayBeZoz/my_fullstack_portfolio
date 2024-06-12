@@ -34,7 +34,7 @@ function NotFoundPage() {
 
             <div className='z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed flex flex-col items-center gap-10'>
                 <h2 className='text-9xl font-ivy-mode-regular'>404</h2>
-                <p className='font-robert text-lg'>damn you re lost again !</p>
+                <p className='font-robert text-lg'>damnit you re lost!</p>
 
                 <Link href='/' className='white_button'>
                     go to home page

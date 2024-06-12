@@ -62,7 +62,7 @@
 }
 
 .input {
-    @apply w-full h-[40xpx] border border-zinc-200 p-5 text-xl outline-none bg-transparent font-robert
+    @apply w-full h-[40xpx] border border-zinc-200 p-5 text-2xl outline-none bg-transparent font-robert
 }
 .textarea {
     @apply input resize-none !h-[150px] 
