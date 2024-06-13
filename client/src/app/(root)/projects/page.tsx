@@ -1,6 +1,5 @@
 'use client'
 import Image from '@/components/root/Image'
-import Skeleton from '@/components/root/Skeleton'
 import TransitionLink from '@/components/root/TransitionLink'
 import useGetProjects from '@/hooks/useGetProjects'
 import { BASE_URL, projectsRoute } from '@/services/api'
@@ -53,10 +52,10 @@ const ProjectSkeleton = ({order}:{order:number}) => {
             className='w-full flex items-center'
         >
             <div className='flex md:!w-[600px] gap-10 w-full flex-col'>
-                <Skeleton className='!w-full h-[300px] sm:h-[400px]'/>
+                <span className='!w-full shimmer h-[300px] sm:h-[400px]'/>
                 <div className='flex flex-col gap-5'>
-                    <Skeleton className='!w-2/3 !h-6'/>
-                    <Skeleton className='!w-1/3 !h-4'/>
+                    <span className='!w-2/3 shimmer !h-6'/>
+                    <span className='!w-1/3 shimmer !h-4'/>
                 </div>
             </div>
         </motion.section>

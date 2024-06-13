@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
+// _app.js or _app.tsx
 
 
 export const metadata: Metadata = {

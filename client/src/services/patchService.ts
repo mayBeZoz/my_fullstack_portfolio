@@ -1,6 +1,5 @@
-import { cookies } from "next/headers"
 import { BASE_URL, clientFetchErrObj } from "./api"
-import { getCookie, getCookies } from "cookies-next"
+import { getCookies } from "cookies-next"
 
 export const patchService =  async (url:string,body:any) => {
 

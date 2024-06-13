@@ -1,6 +1,5 @@
 'use client'
 import Image from '@/components/root/Image'
-import Skeleton from '@/components/root/Skeleton'
 import { infoId } from '@/constants'
 import { useGetInfo } from '@/hooks/useGetInfo'
 import { BASE_URL, infosRoute } from '@/services/api'
@@ -27,11 +26,11 @@ function About() {
                             !isLoading ? 
                             info?.about : 
                             <span className='w-full flex flex-col gap-5'>
-                                <Skeleton/>
-                                <Skeleton/>
-                                <Skeleton />
-                                <Skeleton/>
-                                <Skeleton width={300}/>
+                                <span className='skeleton'/>
+                                <span className='skeleton'/>
+                                <span className='skeleton'/>
+                                <span className='skeleton'/>
+                                <span className='skeleton !w-[300px]'/>
                             </span>
                         }
                     </p>

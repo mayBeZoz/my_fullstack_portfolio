@@ -1,3 +1,4 @@
+import { notify } from "@/utils/notify"
 import { useRouter } from "next/navigation"
 import { useMutation } from "react-query"
 
@@ -24,6 +25,7 @@ export function useLogin (email:string,password:string) {
             if (res.data && res.status_code >= 0) {
                 console.log(res);
                 router.push('/admin-panel')
+                notify('logged in successfully')
             }
         },
         onError:()=>{

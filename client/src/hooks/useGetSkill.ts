@@ -2,23 +2,20 @@ import { skillsRoute } from '@/services/api'
 import { getService } from '@/services/getService'
 import { useQuery } from 'react-query'
 
-function useGetSkills() {
-
+function useGetSkill(id:string) {
     const {data:response,isLoading,isSuccess,refetch} = useQuery({
-        queryKey:['skills'],
+        queryKey:['skills',id],
         queryFn:async _ => getService(skillsRoute)
     })
 
 
-    const skills:Skill[] = response?.data
+    const skill:Skill = response?.data.find((skill:Skill) => skill._id === id)
     return {
-        skills,
+        skill,
         isLoading,
         isSuccess,
         refetch
     }
-    
-
 }
 
-export default useGetSkills
+export default useGetSkill

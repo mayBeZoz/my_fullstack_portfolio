@@ -15,46 +15,23 @@ function Contact() {
     return (
         <section>
             <div className="container mt-[100px] pt-[80px] capitalize">
-                <div className='w-full gap-10 flex'>
-                    <div className='w-1/2'>
-                        <h4 className='text-[9em] flex flex-col uppercase font-ivy-mode-regular'>
-                            <span>get in</span>
-                            <span>touch</span>
-                        </h4>
-                        <div className="w-full bg-red-500 h-[100px]">
-
+                <div className='w-full flex-col gap-10 flex'>
+                    <div className='w-full'>
+                        <div className='text-7xl xs:text-8xl leading-[70px] sm:text-9xl lg:text-[10em] sm:leading-[150px] flex flex-col uppercase font-ivy-mode-regular'>
+                            <div className='flex gap-3'>
+                                <div>
+                                    <div>lets</div>
+                                    <div>work</div>
+                                </div>
+                                <p className='text-sm w-[600px] ml-auto capitalize font-robert'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum iste reprehenderit odit suscipit facilis soluta natus distinctio, animi maxime? A repellat eum animi illum ipsa? Voluptatibus atque porro suscipit asperiores dolorem molestias consequatur sit itaque facilis, omnis cumque at, voluptate quisquam! Eos nam accusamus amet distinctio laudantium aut maxime nihil?</p>
+                            </div>
+                            <div>together</div>
                         </div>
+                        
                     </div>
-                    <form className='w-1/2 flex flex-col gap-10'>
-                        <Input
-                            setValue={setEmail}
-                            type='email'
-                            label='email'
-                            value={email}
-                            required={true}
-                        /> 
-                        <Input
-                            setValue={setName}
-                            type='text'
-                            label='name'
-                            value={name}
-                            required={true}
-                        /> 
-                        <Textarea
-                            setValue={setMessage}
-                            label='message'
-                            value={message}
-                            required={true}
-                        />
-
-                        <button className='white_button !w-full' type="submit">
-                            send
-                        </button>
-                    </form>
+                    <div className="w-full"></div>
                 </div>
-                <div>
-
-                </div>
+                
             </div>
         </section>
     )

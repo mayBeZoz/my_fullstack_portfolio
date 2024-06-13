@@ -69,4 +69,15 @@ declare type Info = {
     }
     
 }
+type PopUpData = {
+    isPopUpOpen: boolean,
+    popUpType: "alert" | "confirm",
+    resolveFunc?:(()=>void)|null,
+    message:string|null,
+    title:string
+}
+declare type PopUpProviderData = {
+    setPopUpData:(newState:PopUp)=>void,
+    popUpData:PopUpData
+}|undefined
 

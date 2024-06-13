@@ -58,8 +58,8 @@ const validateCreateProject = (obj) => {
         client: joi.string().required().max(20),
         order:joi.number(),
         technologies:joi.array(),
-        deployURL:joi.string().required(),
-        githubRepoURL:joi.string().required()
+        deployURL:joi.string(),
+        githubRepoURL:joi.string()
     })
     return schema.validate(obj)
 }

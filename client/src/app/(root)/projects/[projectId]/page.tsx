@@ -26,7 +26,7 @@ function ProjectPage() {
             <div className="container capitalize pt-[100px] flex flex-col">
                 <AnimatePresence>
                     {
-                        !isLoading ?
+                        true ?
                         <ProjectInfosViewer 
                             project={project} 
                             randomProj={randomProj}

@@ -1,15 +1,14 @@
-import { getCookie, getCookies } from "cookies-next"
+import { getCookies } from "cookies-next"
 import { BASE_URL, clientFetchErrObj } from "./api"
 
-export const postService =  async (url:string,body:any) => {
+export const postFormDataService = async (url:string,formData:FormData) => {
     const token = getCookies()['access-token'] || "no token in client"
 
     try {
         const res = await fetch(`${BASE_URL}${url}`,{
             method:"POST",
-            body:JSON.stringify(body),
+            body:formData,
             headers:{
-                'Content-Type':'application/json',
                 token
 
             }
