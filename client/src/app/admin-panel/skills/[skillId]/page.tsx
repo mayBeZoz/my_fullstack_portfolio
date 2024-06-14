@@ -39,7 +39,7 @@ function SkillControls() {
         setIsButtonLoading(true)
         const res = await updateSkill(skillId||'',{name})
         
-        if (res.status_code === 1 && imageFormData) {
+        if (res?.status_code === 1 && imageFormData) {
             await postFormDataService(`${skillsRoute}/${skillId}/upload-image`,imageFormData)
         }
         setIsButtonLoading(false)

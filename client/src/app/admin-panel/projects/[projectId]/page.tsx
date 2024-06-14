@@ -63,7 +63,7 @@ function ProjectControls() {
                 technologies,
                 subDescription,
             })
-            if (res.status_code === 1 && imageFromData) {
+            if (res?.status_code === 1 && imageFromData) {
                 await postFormDataService(`${projectsRoute}/${projectId}/upload-image`,imageFromData)
             }
             setIsButtonLoading(false)

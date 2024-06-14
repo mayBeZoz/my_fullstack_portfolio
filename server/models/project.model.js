@@ -38,11 +38,13 @@ const projectSchema = new mongoose.Schema({
     },
     deployURL:{
         type:String,
-        default:null
+        default:null,
+        required:false
     },
     githubRepoURL:{
         type:String,
-        default:null 
+        default:null,
+        required:false
     }
 })
 

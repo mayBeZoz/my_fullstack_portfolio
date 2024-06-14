@@ -23,7 +23,7 @@ function AddNewSkill() {
         const res = await addSkill({name})
         console.log(res);
         
-        if (res.status_code === 1 && imageFormData) {
+        if (res?.status_code === 1 && imageFormData) {
             const skill =  res.data
             await postFormDataService(`${skillsRoute}/${skill._id}/upload-image`,imageFormData)
         }

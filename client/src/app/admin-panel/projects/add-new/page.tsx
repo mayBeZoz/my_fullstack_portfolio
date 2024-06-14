@@ -43,7 +43,7 @@ function AddNewProject() {
         })
         console.log(res);
         
-        if (res.status_code === 1 && imageFromData) {
+        if (res?.status_code === 1 && imageFromData) {
             const project = res.data
             await postFormDataService(`${projectsRoute}/${project._id}/upload-image`,imageFromData)
         }
