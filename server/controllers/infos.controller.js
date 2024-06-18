@@ -175,7 +175,9 @@ class InfosController {
             if (info) {
                 const resume = info.resume
                 if (resume) {
-                    res.set('Content-Type',resume.mimeType)
+                    res.setHeader('Content-Disposition', `attachment; filename="resume-${id}.pdf"`); // Adjust the filename and extension as necessary
+                    res.setHeader('Content-Type', resume.mimeType);
+                    res.setHeader('Content-Length', resume.resumeBuffer.length);
                     res.send(resume.resumeBuffer)
                 }else {
                     throw new AppError('error in getting info resume')

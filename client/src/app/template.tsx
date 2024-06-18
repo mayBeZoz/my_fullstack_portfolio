@@ -6,7 +6,6 @@ import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer } from "react-toastify";
 import PopUpProvider from "@/contexts/PopUpContext";
-import PopUp from "@/components/contexts/PopUp";
 
 const queryClient = new QueryClient()
 

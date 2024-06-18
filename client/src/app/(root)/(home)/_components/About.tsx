@@ -35,7 +35,7 @@ function About() {
                         }
                     </p>
 
-                    <a href='' download={true} className='white_button'>
+                    <a href={`${BASE_URL}${infosRoute}/${infoId}/upload-resume`} download='zeyad_tamer_resume' className='white_button'>
                         download resume
                     </a>
                 </div>

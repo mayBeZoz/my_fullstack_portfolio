@@ -9,7 +9,7 @@ import { IoMdArrowForward } from 'react-icons/io'
 const WorkItemSkeleton = () => (
     <motion.div exit={{opacity:0}} className='work_item'>
         <div className='flex gap-16'>
-            <span className='skeleton h-[30px] !w-[100px]'/>
+            <span className='skeleton !h-[30px] !w-[200px]'/>
             <div className='flex flex-col mt-auto gap-2'>
                 <span className='skeleton !w-[100px]'/>
                 <span className='skeleton !w-[180px]'/>
@@ -24,8 +24,9 @@ const WorkItem = ({item}:{item:Project}) => {
     return (
         <motion.div 
             initial={{opacity:0}}
+            exit={{opacity:0}}
             animate={{opacity:1}}
-            className='w-full'
+            className='w-full work_item'
         >
             <TransitionLink href={`/projects/${item._id}`} className='work_item duration-300 hover:opacity-80'>
                 <div className="flex items-center capitalize gap-16">
@@ -55,15 +56,10 @@ function Work() {
                                     projects?.map((item:Project,key:number)=> (
                                         <WorkItem item={item} key={key}/>
                                     ))
-                                ) : (
-                                    <>
-                                        {
-                                            Array(10).fill('').map((_,idx)=> (
-                                                <WorkItemSkeleton key={idx}/>
-                                            ))
-                                        }
-                                        
-                                    </>
+                                ) : (       
+                                    Array(6).fill('').map((_,idx)=> (
+                                        <WorkItemSkeleton key={idx}/>
+                                    ))  
                                 )
                             }
                         </AnimatePresence>

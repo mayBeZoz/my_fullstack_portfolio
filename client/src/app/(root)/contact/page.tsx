@@ -1,35 +1,35 @@
 'use client'
 
-import Input from '@/components/root/Input'
-import Marquee from '@/components/root/Marquee'
-import Textarea from '@/components/root/Textarea'
-import React, { useState } from 'react'
+import { useGetInfo } from '@/hooks/useGetInfo'
 
 function Contact() {
 
-    const [email,setEmail] = useState<string>('')
-    const [name,setName] = useState<string>('')
-    const [message,setMessage] = useState<string>('')
-
+    const {info,isLoading} = useGetInfo()
 
     return (
         <section>
-            <div className="container mt-[100px] pt-[80px] capitalize">
-                <div className='w-full flex-col gap-10 flex'>
-                    <div className='w-full'>
-                        <div className='text-7xl xs:text-8xl leading-[70px] sm:text-9xl lg:text-[10em] sm:leading-[150px] flex flex-col uppercase font-ivy-mode-regular'>
-                            <div className='flex gap-3'>
-                                <div>
-                                    <div>lets</div>
-                                    <div>work</div>
-                                </div>
-                                <p className='text-sm w-[600px] ml-auto capitalize font-robert'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum iste reprehenderit odit suscipit facilis soluta natus distinctio, animi maxime? A repellat eum animi illum ipsa? Voluptatibus atque porro suscipit asperiores dolorem molestias consequatur sit itaque facilis, omnis cumque at, voluptate quisquam! Eos nam accusamus amet distinctio laudantium aut maxime nihil?</p>
-                            </div>
-                            <div>together</div>
+            <div className="container mt-[200px] capitalize">
+                <div className='w-full flex-col md:flex-row gap-10 lg:gap-16 md:gap-6 flex'>
+                    <div className='w-full md:w-[65%]'>
+                        <div className='text-7xl xs:text-8xl leading-[70px] sm:text-[7.5em] lg:text-9xl sm:leading-[150px] flex flex-col uppercase font-ivy-mode-regular'>
+                            <div>get in</div>
+                            <div className='w-fit mt-6 ml-auto'>touch!</div>
                         </div>
-                        
+                        <a 
+                            className='w-fit border-b text-2xl block border-white font-robert ml-auto mt-10 lowercase'
+                            href={`mailto:${info?.contacts.email}`}
+                        >
+                            {info?.contacts.email}
+                        </a>
+
                     </div>
-                    <div className="w-full"></div>
+                    <span className='w-full h-[1px] md:w-[2px] bg-white md:h-[400px] block'/>
+                    <div className="w-full md:w-[35%] uppercase font-ivy-mode-regular text-5xl lg:text-6xl flex flex-col gap-10">
+                        <a>linkedIn</a>
+                        <a>github</a>
+                        <a>whatsapp</a>
+                        <a>facebook</a>
+                    </div>
                 </div>
                 
             </div>
