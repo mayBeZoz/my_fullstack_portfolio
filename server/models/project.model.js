@@ -31,11 +31,6 @@ const projectSchema = new mongoose.Schema({
         default:0,
         unique:true
     },
-    technologies:{
-        type:[mongoose.Schema.Types.ObjectId],
-        ref:'Skill',
-        default:[]
-    },
     deployURL:{
         type:String,
         default:null,
@@ -59,7 +54,6 @@ const validateCreateProject = (obj) => {
         date: joi.string().required(),
         client: joi.string().required().max(20),
         order:joi.number(),
-        technologies:joi.array(),
         deployURL:joi.string(),
         githubRepoURL:joi.string()
     })
@@ -74,7 +68,6 @@ const validateUpdateProject = (obj) => {
         date: joi.string(),
         client: joi.string().max(20),
         order:joi.number(),
-        technologies:joi.array(),
         deployURL:joi.string(),
         githubRepoURL:joi.string()
     })

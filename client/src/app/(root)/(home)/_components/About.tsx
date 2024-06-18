@@ -21,7 +21,7 @@ function About() {
                 <div className='flex flex-1 mt-auto h-fit gap-10 flex-col'>
                     <h2 className='section_heading'>about</h2>
 
-                    <p className='text-sm sm:text-xl font-robert'>
+                    <p className='text-sm capitalize sm:text-xl font-robert'>
                         {
                             !isLoading ? 
                             info?.about : 

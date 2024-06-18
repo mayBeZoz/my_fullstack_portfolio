@@ -26,14 +26,7 @@ const infoSchema = new mongoose.Schema({
     services: {
         type : [{
             name:String,
-            description:String,
-            imgBuffer:Buffer||null,
-            mimeType:String||null,
-            technologies:{
-                type:[mongoose.Schema.Types.ObjectId],
-                ref:'Skill',
-                default:[]
-            }
+            technologies:[String]
         }]
     },
     isSelected:{
@@ -64,7 +57,7 @@ const validateCreateInfo = (obj) => {
         services: joi.array().items(
             joi.object({
                 name: joi.string().required(),
-                description: joi.string().required(),
+                technologies:joi.array()
             })
         ).required()
     })
@@ -89,7 +82,7 @@ const validateUpdateInfo = (obj) => {
         services: joi.array().items(
             joi.object({
                 name: joi.string().required(),
-                description: joi.string().required(),
+                technologies:joi.array()
             })
         )
     })

@@ -40,9 +40,6 @@ declare type Social = {
 }
 declare type Service = {
     name: string,
-    description: string,
-    imgBuffer: null|Buffer,
-    mimeType: null|string,
     technologies: Skill[]
 }
 declare type Info = {

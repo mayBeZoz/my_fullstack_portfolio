@@ -75,7 +75,7 @@ class ProjectController {
             const body = req.body
             const {error} = validateUpdateProject(body)
             if (!error) {
-                const {name,githubRepoURL,deployURL,description,isSelected,technologies,order,subDescription,client,date} = req.body
+                const {name,githubRepoURL,deployURL,description,isSelected,order,subDescription,client,date} = req.body
         
                 const id = req.params.id
                 const newValues = {}
@@ -92,8 +92,6 @@ class ProjectController {
                     newValues.date = date 
                 if (order)
                     newValues.order = +order
-                if (technologies)
-                    newValues.technologies = technologies
                 if (isSelected)
                     newValues.isSelected = isSelected
                 if (githubRepoURL)

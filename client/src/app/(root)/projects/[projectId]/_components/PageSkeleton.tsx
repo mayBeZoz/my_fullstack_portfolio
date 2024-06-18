@@ -1,38 +1,43 @@
+import { motion } from 'framer-motion'
 import React from 'react'
-import { BsGlobe2 } from 'react-icons/bs'
 
 function PageSkeleton() {
     return (
-        <div>
+        <motion.div exit={{opacity:0}}>
             <div className="flex mt-32">
-                <div className="w-3/4 flex gap-16 flex-col">
-                    <span className="shimmer w-[500px] h-[50px]"/>
-                    <div className="flex text-lg font-robert gap-20 items-center">
+                <div className="w-full md:w-3/4 flex gap-16 flex-col">
+                    <span className="w-[90%] h-[80px] shimmer"/>
+                    <div className="flex text-lg flex-col gap-20 sm:flex-row font-robert justify-between items-start sm:items-end">
                         
-                        <div>
-                            <span className='!w-1/3 shimmer !h-4'/>
-                            <span className='!w-1/3 shimmer !h-4'/>
-                        </div>
-                        <div>
-                            <span ></span>
-                            <p></p>
+                        <div className="gap-20 flex">
+                            <div>
+                                <span className='shimmer mb-3 w-[110px] h-[20px]'/>
+                                <span className='shimmer w-[110px] h-[20px]'/>
+                            </div>
+                            <div>
+                                <span className='shimmer mb-3 w-[110px] h-[20px]'/>
+                                <span className='shimmer w-[110px] h-[20px]'/>
+                            </div>
                         </div>
 
+                        <div className='flex gap-5 items-end'>
+                            <span className='shimmer w-[30px] aspect-square'/>
+                            <span className='shimmer w-[30px] aspect-square'/>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    
-
-
-                </div>
+                
             </div>
 
-            <span className=' shimmer !h-4  my-32 mx-auto w-[80%] sm:w-[350px]'/>
+            <div className="w-full my-32 gap-4 flex-col flex">
+                <span className="w-[80%] sm:w-[400px] h-[15px] shimmer"/>
+                <span className="w-[80%] sm:w-[400px] h-[15px] shimmer"/>
+                <span className="w-[80%] sm:w-[400px] h-[15px] shimmer"/>
+                <span className="w-[80%] sm:w-[400px] h-[15px] shimmer"/>
+            </div>
 
-            <div 
-                className='w-full shimmer md:w-2/3 aspect-[1.5/1] mx-auto'
-            />
-        </div>
+            <span className='w-full shimmer md:w-2/3 aspect-[1.5/1] mx-auto'/>
+        </motion.div>
     )
 }
 

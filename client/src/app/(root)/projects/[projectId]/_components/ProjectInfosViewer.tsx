@@ -1,5 +1,6 @@
 import Image from '@/components/root/Image'
 import { BASE_URL, projectsRoute } from '@/services/api'
+import { motion } from 'framer-motion'
 import React from 'react'
 import { BsGlobe2 } from 'react-icons/bs'
 import { FaCode } from 'react-icons/fa'
@@ -11,7 +12,7 @@ type ProjectInfosViewerProps = {
 
 function ProjectInfosViewer({project,randomProj}:ProjectInfosViewerProps) {
     return (
-        <div>
+        <motion.div initial={{opacity:0}} animate={{opacity:1}}>
             <div className="flex mt-32">
                 <div className="w-full md:w-3/4 flex gap-16 flex-col">
                     <h2 className="text-7xl sm:text-8xl font-ivy-mode-regular">{project?.name}</h2>
@@ -49,7 +50,7 @@ function ProjectInfosViewer({project,randomProj}:ProjectInfosViewerProps) {
                     className='w-full md:w-2/3 aspect-[1.5/1] mx-auto'
                 />
             </a>
-        </div>
+        </motion.div>
     )
 }
 
