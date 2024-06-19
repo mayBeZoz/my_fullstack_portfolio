@@ -1,6 +1,8 @@
 'use client'
 
 import { useGetInfo } from '@/hooks/useGetInfo'
+import { AnimatePresence, motion } from 'framer-motion'
+
 
 function Contact() {
 
@@ -24,11 +26,27 @@ function Contact() {
 
                     </div>
                     <span className='w-full h-[1px] md:w-[2px] bg-white md:h-[400px] block'/>
-                    <div className="w-full md:w-[35%] uppercase font-ivy-mode-regular text-5xl lg:text-6xl flex flex-col gap-10">
-                        <a>linkedIn</a>
-                        <a>github</a>
-                        <a>whatsapp</a>
-                        <a>facebook</a>
+                    <div className="w-full md:w-[35%] flex flex-col gap-10">
+                        <AnimatePresence>
+                            {
+                                isLoading ? 
+                                <>
+                                </> :
+                                info?.socials.map((social:Social,idx:number) => (
+                                    <motion.a 
+                                        className='uppercase w-fit hover:opacity-80 duration-200 font-ivy-mode-regular text-5xl lg:text-6xl'
+                                        key={idx}
+                                        href={social.href}
+                                        target='_blank'
+                                        initial={{opacity:0}}
+                                        animate={{opacity:1}}
+                                    >
+                                        {social.name}
+                                    </motion.a>
+                                ))
+                                
+                            }
+                        </AnimatePresence>
                     </div>
                 </div>
                 

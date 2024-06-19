@@ -9,10 +9,10 @@ import { IoMdArrowForward } from 'react-icons/io'
 const WorkItemSkeleton = () => (
     <motion.div exit={{opacity:0}} className='work_item'>
         <div className='flex gap-16'>
-            <span className='skeleton !h-[30px] !w-[200px]'/>
+            <span className='shimmer h-[30px] w-[200px]'/>
             <div className='flex flex-col mt-auto gap-2'>
-                <span className='skeleton !w-[100px]'/>
-                <span className='skeleton !w-[180px]'/>
+                <span className='shimmer h-[10px] w-[100px]'/>
+                <span className='shimmer h-[10px] w-[180px]'/>
             </div>
         </div>  
         <span className='w-full h-[2px] absolute bottom-0 left-0 bg-white/25 shimmer'/>      

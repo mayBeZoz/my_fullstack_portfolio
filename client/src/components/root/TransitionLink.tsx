@@ -18,7 +18,9 @@ function TransitionLink({href,children,className}:TransitionLinkProps) {
             const tl:GSAPTimeline = pageTransitionAnimation()
             await tl.play()
             await router.push(href)
-            tl.reverse()
+            setTimeout(async () => {
+                await tl.reverse()
+            }, 1000);
         }
     }
     

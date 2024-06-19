@@ -17,13 +17,19 @@ function Skills() {
                         isLoading ? 
                         <></> :
                         skills?.map((skill:Skill,idx:number) => (
-                            <div key={idx} className="w-full relative gap-2 flex flex-col justify-center items-center p-5 aspect-square">
-                                <span className="absolute top-0 left-0 w-full h-[1px] bg-white"/>
+                            <div key={idx} className="skill_box">
+                                <span className="skill_top_border"/>
+                                <span className="skill_bottom_border"/>
+                                
+                                <span className="skill_left_border"/>
+                                <span className="skill_right_border"/>
+                                
+
                                 <Image
-                                    className='aspect-square w-[100px] object-cover' 
+                                    className='skill_image duration-500 aspect-square relative z-10 w-[100px] object-cover' 
                                     src={`${BASE_URL}${skillsRoute}/${skill._id}/upload-image`} 
                                 />
-                                <p className='font-robert text-center text-xl'>{skill.name}</p>
+                                <p className='skill_title opacity-0 duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-robert text-center text-xl'>{skill.name}</p>
                             </div>
                         ))
                         

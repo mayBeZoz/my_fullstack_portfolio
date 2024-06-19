@@ -55,7 +55,7 @@
     background: linear-gradient(-80deg, #1d1d1d 0%, #3d3d3d 20%, #1d1d1d 40%, #1d1d1d 100%);
     background-size: 1000px 100%;
     animation: shimmer 4s infinite linear;
-    @apply block
+    @apply block rounded-lg
 }
 
 .input_label {
@@ -69,6 +69,25 @@
     @apply input resize-none !h-[150px] 
 }
 
-.skeleton {
-    @apply h-[10px] bg-white/25 block rounded-md w-full shimmer
+.skill_box {
+    @apply w-full hover:bg-zinc-900 duration-300 relative gap-2 flex flex-col justify-center items-center p-5 aspect-square 
+}
+.skill_box:hover .skill_image {
+    @apply opacity-0
+}
+.skill_box:hover .skill_title {
+    @apply opacity-100
+}
+
+.skill_left_border {
+    @apply absolute left-0 w-[1px] h-full bg-zinc-700
+}
+.skill_right_border {
+    @apply absolute right-[-1px] w-[1px] h-full bg-zinc-700
+}
+.skill_top_border {
+    @apply absolute top-0 -left-[400vw] w-[800vw] h-[1px] bg-zinc-700
+}
+.skill_bottom_border {
+    @apply absolute bottom-[-1px] -left-[400vw] w-[800vw] h-[1px] bg-zinc-700
 }
