@@ -1,11 +1,9 @@
 'use client'
 
-import { useParams } from "next/navigation"
 import { useState } from "react"
-import PageLoader from "../../_components/PageLoader"
 import LoadingButton from "@/components/root/LoadingButton"
 import ImageUploadInput from "@/components/root/ImageUploadInput"
-import { BASE_URL, projectsRoute } from "@/services/api"
+import { projectsRoute } from "@/services/api"
 import { postFormDataService } from "@/services/postFormDataService"
 import BackButton from "../../_components/BackButton"
 import ProjectInputs from "../_components/ProjectInputs"
@@ -21,7 +19,6 @@ function AddNewProject() {
     const [client,setClient] = useState<string>('')
     const [subDescription,setSubDescription] = useState<string>('')
     const [order,setOrder] = useState<string>('')
-    const [technologies,setTechnologies] = useState<Skill[]>([])
     const [imageFromData,setImageFormData] = useState<FormData|undefined>()
 
     const [isButtonLoading,setIsButtonLoading] = useState<boolean>(false)   
@@ -38,7 +35,6 @@ function AddNewProject() {
             date,
             client,
             order:+order,
-            technologies,
             subDescription,
         })
         console.log(res);
@@ -84,9 +80,7 @@ function AddNewProject() {
                             setName={setName}
                             setOrder={setOrder}
                             setSubDescription={setSubDescription}
-                            setTechnologies={setTechnologies}
                             subDescription={subDescription}
-                            technologies={technologies}
                         />
                     </div>
                 </div>
