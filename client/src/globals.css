@@ -19,6 +19,7 @@
     --robert-regular:roobert;
     background: var(--nightmare-black,#000);
     color: var(--white,#fff);
+    overflow-x: hidden;
 }
 ::-webkit-scrollbar {
     width: 0;

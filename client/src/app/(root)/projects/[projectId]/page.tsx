@@ -14,7 +14,6 @@ function ProjectPage() {
     const projectId = params?.projectId as string | undefined
     
     const {project,isLoading,isSuccess} = useGetProject(projectId)
-    //console.log(project);
     
     const randomProj = useGetRandomProject(project?._id)
     

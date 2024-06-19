@@ -26,7 +26,7 @@ function Skills() {
                                 
 
                                 <Image
-                                    className='skill_image duration-500 aspect-square relative z-10 w-[100px] object-cover' 
+                                    className='skill_image duration-500 aspect-square relative z-10 w-[100px] object-contain' 
                                     src={`${BASE_URL}${skillsRoute}/${skill._id}/upload-image`} 
                                 />
                                 <p className='skill_title opacity-0 duration-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-robert text-center text-xl'>{skill.name}</p>

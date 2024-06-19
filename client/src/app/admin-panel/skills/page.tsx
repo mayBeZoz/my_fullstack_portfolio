@@ -25,10 +25,10 @@ function SkillsPanel() {
                                 <Link 
                                     href={`/admin-panel/skills/${skill._id}`} 
                                     key={idx} 
-                                    className='w-full bg-nightmare-black hover:bg-zinc-400/30 duration-200 aspect-square flex-col flex justify-center p-4 items-center gap-2'
+                                    className='w-full bg-nightmare-black hover:bg-zinc-800 duration-200 aspect-square flex-col flex justify-center p-4 items-center gap-2'
                                 >
                                     <Image 
-                                        className='aspect-square h-[150px]' 
+                                        className='aspect-square object-contain h-[150px]' 
                                         src={`${BASE_URL}${skillsRoute}/${skill._id}/upload-image`} 
                                     />
                                     <p className='font-robert text-xl'>{skill.name}</p>

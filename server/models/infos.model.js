@@ -23,12 +23,6 @@ const infoSchema = new mongoose.Schema({
             mimeType:String||null
         }
     },
-    services: {
-        type : [{
-            name:String,
-            technologies:[String]
-        }]
-    },
     isSelected:{
         type:Boolean,
         default:false
@@ -54,12 +48,6 @@ const validateCreateInfo = (obj) => {
             phone: joi.string().required()
         }).required(),
         about: joi.string().allow(null).required(),
-        services: joi.array().items(
-            joi.object({
-                name: joi.string().required(),
-                technologies:joi.array()
-            })
-        ).required()
     })
 
     return schema.validate(obj)
@@ -79,12 +67,7 @@ const validateUpdateInfo = (obj) => {
             phone: joi.string().required()
         }),
         about: joi.string().allow(null),
-        services: joi.array().items(
-            joi.object({
-                name: joi.string().required(),
-                technologies:joi.array()
-            })
-        )
+
     })
 
     return schema.validate(obj)

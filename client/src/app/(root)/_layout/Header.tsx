@@ -1,3 +1,4 @@
+import MagneticButton from '@/components/root/MagneticButton'
 import TransitionLink from '@/components/root/TransitionLink'
 import React from 'react'
 
@@ -30,9 +31,11 @@ function Header() {
                             {
                                 links.map((link,key)=> (
                                     <li className='text-sm xs:text-lg w-fit uppercase' key={key}>
-                                        <TransitionLink href={link.href}>
-                                            {link.name}
-                                        </TransitionLink>
+                                        <MagneticButton>
+                                            <TransitionLink href={link.href}>
+                                                {link.name}
+                                            </TransitionLink>
+                                        </MagneticButton>
                                     </li>
                                 ))
                             }

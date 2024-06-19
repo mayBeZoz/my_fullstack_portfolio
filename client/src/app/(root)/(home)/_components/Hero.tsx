@@ -19,7 +19,7 @@ function Hero() {
                     </div>
                 </div>
 
-                <div className='absolute font-robert font-thin w-full bottom-2 flex justify-between items-end'>
+                <div className='absolute font-robert font-thin w-full bottom-7 flex justify-between items-end'>
                     <p className='xs:block hidden text-sm'>{`all rights © reserved ${getCurrYear()}`}</p>
                     <p className='xs:block hidden text-sm'>based in egypt, cairo</p>
                 </div>

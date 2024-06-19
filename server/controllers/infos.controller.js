@@ -28,11 +28,9 @@ class InfosController {
             const body = req.body
             const {error} = validateUpdateInfo(body)
             if (!error) {
-                const {services,socials,about,contacts,isChecked} = body
+                const {socials,about,contacts,isChecked} = body
                 const newValues = {}
 
-                if (services)
-                    newValues.services = services
                 if (socials)
                     newValues.socials = socials
                 if (about)
