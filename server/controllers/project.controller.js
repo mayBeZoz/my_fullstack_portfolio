@@ -15,7 +15,7 @@ class ProjectController {
 
             const projects = await Project.find({})
             .skip(skip).limit(limit)
-            .populate('technologies').exec()
+            
             
             if (Boolean(projects)) {
                 res.status(200).json({
@@ -35,7 +35,7 @@ class ProjectController {
     static getProjectById = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const project = await Project.findById(id).populate('technologies').exec()
+            const project = await Project.findById(id)
             if (project) {
                 res.status(200).json({
                     data:project,
