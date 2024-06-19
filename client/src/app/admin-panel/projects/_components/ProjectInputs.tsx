@@ -12,7 +12,6 @@ type ProjectInputsProps = {
     client:string,
     subDescription:string,
     order:string,
-    technologies:Skill[],
     setName:(newState:string) => void,
     setDescription:(newState:string) => void,
     setGithubRepoURL:(newState:string) => void,
@@ -21,7 +20,6 @@ type ProjectInputsProps = {
     setClient:(newState:string) => void,
     setSubDescription:(newState:string) => void,
     setOrder:(newState:string) => void,
-    setTechnologies:(newState:Skill[]) => void,
 }
 function ProjectInputs({
     client,
@@ -40,8 +38,7 @@ function ProjectInputs({
     setName,
     setOrder,
     setSubDescription,
-    setTechnologies,
-    technologies
+
 }:ProjectInputsProps) {
     return (
         <>

@@ -26,7 +26,6 @@ function ProjectControls() {
     const [client,setClient] = useState<string>('')
     const [subDescription,setSubDescription] = useState<string>('')
     const [order,setOrder] = useState<string>('')
-    const [technologies,setTechnologies] = useState<Skill[]>([])
     const [imageFromData,setImageFormData] = useState<FormData|undefined>()
 
     const [isButtonLoading,setIsButtonLoading] = useState<boolean>(false)
@@ -44,7 +43,6 @@ function ProjectControls() {
             setDeployURL(project.deployURL)
             setDate(project.date)
             setOrder(project.order.toString())
-            setTechnologies(project.technologies)
             setSubDescription(project.subDescription)
         }
     },[project,isLoading])
@@ -60,7 +58,6 @@ function ProjectControls() {
                 date,
                 client,
                 order:+order,
-                technologies,
                 subDescription,
             })
             if (res?.status_code === 1 && imageFromData) {
@@ -107,9 +104,7 @@ function ProjectControls() {
                                 setName={setName}
                                 setOrder={setOrder}
                                 setSubDescription={setSubDescription}
-                                setTechnologies={setTechnologies}
                                 subDescription={subDescription}
-                                technologies={technologies}
                             />
                         </div>
                     </div>
