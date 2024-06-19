@@ -37,14 +37,10 @@ declare type Social = {
     name:string,
     href:string
 }
-declare type Service = {
-    name: string,
-    technologies: Skill[]
-}
+
 declare type Info = {
     
-    _id:                    string
-    services:               Service[],
+    _id:                    string,
     socials:                Social[],
     contacts: {
         email:              string,
