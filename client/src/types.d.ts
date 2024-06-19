@@ -30,7 +30,6 @@ declare type Project = {
     mimeType:       string|null,
     subDescription: string,
     order:          number,
-    technologies:   Skill[]|[],
     _id:            string  
 }
 

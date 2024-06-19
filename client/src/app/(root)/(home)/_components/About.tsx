@@ -26,11 +26,10 @@ function About() {
                             !isLoading ? 
                             info?.about : 
                             <span className='w-full flex flex-col gap-5'>
-                                <span className='skeleton'/>
-                                <span className='skeleton'/>
-                                <span className='skeleton'/>
-                                <span className='skeleton'/>
-                                <span className='skeleton !w-[300px]'/>
+                                <span className='shimmer w-full h-[10px]'/>
+                                <span className='shimmer w-full h-[10px]'/>
+                                <span className='shimmer w-full h-[10px]'/>
+                                <span className='shimmer w-full h-[10px]'/>
                             </span>
                         }
                     </p>
