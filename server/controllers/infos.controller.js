@@ -9,7 +9,7 @@ class InfosController {
     static getInfoById = controllerHandler(
         async (req,res,next) => {
             const id = req.params.id
-            const info = await Info.findById(id).populate('services.technologies').exec()
+            const info = await Info.findById(id)
             if (info) {
                 res.status(200).json({
                     data:info,
@@ -84,7 +84,7 @@ class InfosController {
 
     static getInfos = controllerHandler(
         async (req,res,next) => {
-            const infos = await Info.find({}).populate('services.technologies').exec()
+            const infos = await Info.find({})
             if (infos) {
                 res.status(200).json({
                     data:infos,
