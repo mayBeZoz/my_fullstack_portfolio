@@ -12,7 +12,16 @@ export const metadata: Metadata = {
 export default function RootLayout({children}:Children) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <head>
+                <link
+                    rel="icon"
+                    href="favicon.svg"
+                    sizes="32x32"
+                />
+            </head>
+            <body>
+                {children}
+            </body>
         </html>
     );
 }
