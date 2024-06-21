@@ -12,17 +12,15 @@ const app = express()
  
 
 databaseConnection()
-// const corsOptions = {
-//     origin: true,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'token'], 
-//     optionsSuccessStatus: 204 
-// };
+const corsOptions = {
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type','Access-Control-Allow-Origin', 'token'], 
+    optionsSuccessStatus: 204 
+};
   
-// app.use(cors(corsOptions));
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors(corsOptions));
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
