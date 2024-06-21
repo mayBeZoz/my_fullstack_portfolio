@@ -13,10 +13,11 @@ const app = express()
 
 databaseConnection()
 const corsOptions = {
-    origin: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: 'https://zeyadtamer.vercel.app/',
+    methods: ['GET', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type','Access-Control-Allow-Origin', 'token'], 
-    optionsSuccessStatus: 204 
+    optionsSuccessStatus: 204 ,
+    
 };
   
 app.use(cors(corsOptions));
