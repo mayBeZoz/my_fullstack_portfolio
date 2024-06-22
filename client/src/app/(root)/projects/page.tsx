@@ -16,28 +16,34 @@ type ProjectProps = {
 const Project = ({project,order}:ProjectProps) => {
     const {_id,name,subDescription} = project
     const isEvenNum = isEven(order)
-
+    const href =`/projects/${_id}`
     return (
         <motion.section             
             animate={{opacity:1}}
-            className='w-full flex items-center'
+            className='project w-full flex items-center'
             initial={{opacity:0}}
             style={{justifyContent:isEvenNum ? 'end' : 'start'}}
         >
-            <TransitionLink 
-                href={`/projects/${_id}`} 
-                className='flex md:!w-[600px] gap-10 w-full flex-col'
-            >
-                <Image 
-                    className='!w-full h-[300px] sm:h-[400px]' 
-                    src={`${BASE_URL}${projectsRoute}/${_id}/upload-image`}
-                />                
+            <div className='flex md:!w-[600px] gap-10 w-full flex-col'>
+                <TransitionLink 
+                    href={href} 
+                >
+                    <Image 
+                        className='!w-full rounded-xl h-[300px] sm:h-[400px]' 
+                        src={`${BASE_URL}${projectsRoute}/${_id}/upload-image`}
+                    />                
+                    
+                </TransitionLink>
                 <div className='flex flex-col gap-5'>
-                    <h5 className='font-ivy-mode-regular text-4xl sm:text-5xl'>{name}</h5>
-                    <p className='font-robert text-lg'>{subDescription}</p>
+                    <TransitionLink href={href}>
+                        <h5 className='title font-ivy-mode-regular text-4xl sm:text-5xl'>{name}</h5>
+                    </TransitionLink>
+                    <TransitionLink href={href}>          
+                        <p className='font-robert text-lg'>{subDescription}</p>
+                    </TransitionLink>
                 </div>
-            </TransitionLink>
-            
+            </div>
+ 
         </motion.section>
     )
 }
@@ -49,7 +55,7 @@ const ProjectSkeleton = ({order}:{order:number}) => {
         <motion.section 
             exit={{opacity:0}}
             style={{justifyContent:isEvenNum ? 'end' : 'start'}}
-            className='w-full flex items-center'
+            className='w-full flex items-center project'
         >
             <div className='flex md:!w-[600px] gap-10 w-full flex-col'>
                 <span className='!w-full shimmer h-[300px] sm:h-[400px]'/>
@@ -64,6 +70,9 @@ const ProjectSkeleton = ({order}:{order:number}) => {
 function ProjectsPage() {
 
     const {isLoading,projects} = useGetProjects(20,1)
+
+
+
     return (
         <div className='container capitalize pt-[100px]'>
             <h2 className='text-7xl md:text-9xl my-20 font-ivy-mode-regular'>all projects</h2>

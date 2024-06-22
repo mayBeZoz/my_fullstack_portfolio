@@ -25,7 +25,7 @@ function TransitionLink({href,children,className}:TransitionLinkProps) {
     }
     
     return (
-        <div className={`cursor-pointer ${className}`} onClick={handleNavigation}>
+        <div className={`cursor-pointer w-fit ${className}`} onClick={handleNavigation}>
             {children}
         </div>
     )

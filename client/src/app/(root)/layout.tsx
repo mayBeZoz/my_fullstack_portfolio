@@ -8,7 +8,7 @@ function MainLayout({children}:Children) {
 
     return (
         <>
-            <AppLoader/>
+            {/* <AppLoader/> */}
             <Header/>
             {children}
             <Footer/>

@@ -10,7 +10,7 @@ function Contact() {
     const {info,isLoading} = useGetInfo()
 
     return (
-        <section className='min-h-screen flex items-center'>
+        <section className='pt-[200px] flex items-center'>
             <div className="container capitalize">
                 <div className='w-full flex-col md:flex-row gap-10 lg:gap-16 md:gap-5 flex'>
                     <div className='w-full md:w-[65%]'>

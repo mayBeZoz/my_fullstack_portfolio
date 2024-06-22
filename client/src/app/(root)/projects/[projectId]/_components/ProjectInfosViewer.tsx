@@ -44,10 +44,10 @@ function ProjectInfosViewer({project,randomProj}:ProjectInfosViewerProps) {
 
             <p className="font-robert my-32 w-[80%] sm:w-[400px] text-xl">{project?.description}</p>
 
-            <a href={project?.deployURL} target='_blank'>
+            <a className='w-full block overflow-hidden rounded-xl md:w-2/3 aspect-[1.5/1] mx-auto' href={project?.deployURL} target='_blank'>
                 <Image 
                     src={`${BASE_URL}${projectsRoute}/${project?._id}/upload-image`}
-                    className='w-full md:w-2/3 aspect-[1.5/1] mx-auto'
+                    className='w-full'
                 />
             </a>
         </motion.div>

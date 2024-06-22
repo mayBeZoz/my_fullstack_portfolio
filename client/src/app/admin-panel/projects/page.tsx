@@ -34,6 +34,7 @@ const Project = ({project,order}:ProjectProps) => {
                 <div className='flex flex-col gap-5'>
                     <h5 className='font-ivy-mode-regular text-4xl sm:text-5xl'>{name}</h5>
                     <p>{subDescription}</p>
+                    <p>order : {project.order}</p>
                 </div>
             </Link>
             
