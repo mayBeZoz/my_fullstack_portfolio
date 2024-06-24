@@ -21,6 +21,11 @@
     color: var(--white,#fff);
     overflow-x: hidden;
 }
+
+body {
+    overflow-x:hidden;
+}
+
 ::-webkit-scrollbar {
     width: 0;
 }
